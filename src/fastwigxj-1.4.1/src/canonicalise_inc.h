@@ -21,7 +21,9 @@
 #ifndef __CANONICALISE_INC_H__
 #define __CANONICALISE_INC_H__
 
-#include <x86intrin.h>
+#ifndef ARM64
+    #include <x86intrin.h>
+#endif
 
 #include "fastwigxj_config.h"
 

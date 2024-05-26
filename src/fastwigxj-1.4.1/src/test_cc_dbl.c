@@ -37,15 +37,21 @@ __thread int global = 0;
 #include <pthread.h>
 #endif
 #if TEST_AVX2
-#include <x86intrin.h>
+    #ifndef ARM64
+        #include <x86intrin.h>
+    #endif
 typedef long long v4di __attribute__ ((vector_size (32)));
 #endif
 #if TEST_SSE4_1
-#include <x86intrin.h>
+    #ifndef ARM64
+        #include <x86intrin.h>
+    #endif
 typedef double v2df __attribute__ ((vector_size (16)));
 #endif
 #if TEST_SSE4_2
-#include <x86intrin.h>
+    #ifndef ARM64
+        #include <x86intrin.h>
+    #endif
 typedef long long int  v2di __attribute__ ((vector_size (16)));
 #endif
 
