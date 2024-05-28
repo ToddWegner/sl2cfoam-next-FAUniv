@@ -1,5 +1,5 @@
 Copy files into the directory containing sl2cfoam-next.
-./setup.sh
+Cut and paste contents of setup.sh into terminal.
 
 
 sl2cfoam.ipynb    Notebook from Hongguang Liu https://indico.cern.ch/event/1231365/overview
