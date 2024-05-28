@@ -21,7 +21,7 @@ println("Hello from process ", rank, " of ", size)
 
 #1) init SL2Cfoam library
 Immirzi = 0.123;
-folder="/data/sandbox/devTodd/code/spinFoam/sl2cfoam-next/data_sl2cfoam";
+folder="./sl2cfoam-next/data_sl2cfoam";
 conf = SL2Cfoam.Config(VerbosityOff, NormalAccuracy, 100,0);
 
 SL2Cfoam.cinit(folder, Immirzi, conf);

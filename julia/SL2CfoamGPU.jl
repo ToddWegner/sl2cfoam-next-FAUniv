@@ -3,7 +3,9 @@ module SL2CfoamGPU
 using SL2Cfoam
 using CUDA
 
-export to_GPU, Base.only
+# TODO(Todd)  Base.only gives error "Expected `end` "
+#export to_GPU, Base.only
+export to_GPU
 
 # checks that GPU is available and working
 __init__() = @assert CUDA.functional(true)

@@ -1,5 +1,8 @@
 #! /usr/local/bin/julia
 
+# Install your nvidia driver!
+# sudo apt install nvidia-driver-535
+
 # This script requires CUDA support, will not run on Intel GPU
 # to load from repel: include("listing7.jl")
 

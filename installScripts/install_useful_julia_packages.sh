@@ -16,35 +16,40 @@ for p in minimalPackages
 end
 
 additionalPackages = [
+    "AdvancedHMC",
     "BenchmarkTools",
+    "Conda",
     "CSV",
     "DataFrames",
     "Dates",
     "Debugger",
-    "DelimitedFiles"
+    "DelimitedFiles",
     "DifferentialEquations",
     "Distributed",
     "Distributions",
+    "DynamicHMC",
     "ElasticArrays",
     "ForwardDiff",
-    "JLD2"
-    "JupyterFormatter"
-    "KahanSummation"
+    "JLD2",
+    "JSON",
+    "JupyterFormatter",
+    "KahanSummation",
     "LaTeXStrings",
     "LoopVectorization",
-    "ParallelDataTransfer"
+    "ParallelDataTransfer",
     "PGFPlotsX",
-    "ProgressMeter"
-    "PyCall"
+    "ProgressMeter",
+    "PyCall",
     "QuadGK",
     "Random",
     "SharedArrays",
-    "StatsBase"
-    "StatsPlots"
-    "SymEngine"
-    "SymPy"
-    "Tullio"
-    "WignerSymbols")
+    "StatsBase",
+    "StatsPlots",
+    "SymEngine",
+    "SymPy",
+    "Tullio",
+    "Turing",
+    "WignerSymbols"]
 
 for p in additionalPackages
     Pkg.add("$p")

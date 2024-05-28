@@ -11,6 +11,9 @@ sudo apt install python3-pip
 echo -e "${GREEN}Install python3-venv${NC}"
 sudo apt install python3-venv
 
+echo -e "${GREEN}Install at system level ${NC}"
+sudo apt install python3-sympy
+
 echo -e "${GREEN}Activate local Python environment${NC}"
 python3 -m venv .venv
 source .venv/bin/activate
@@ -29,6 +32,18 @@ echo -e "${GREEN}Set Jupyter Themes${NC}"
 # grade3
 # oceans16
 # chesterish
-jt -t oceans16
 
+#jt -t oceans16
+
+read -p "Install optional python packages locally (symply, numpy, symengine, pandas) (y/n) ? " -n 1 -r
+
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    python3 -m pip install sympy
+    python3 -m pip install numpy
+    python3 -m pip install symengine
+    python3 -m pip install pandas    
+fi
+
+echo
 echo -e "${GREEN}Done.${NC}"
