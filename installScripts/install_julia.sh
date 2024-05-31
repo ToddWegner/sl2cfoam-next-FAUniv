@@ -23,6 +23,6 @@ ln -s /usr/lib/x86_64-linux-gnu/libmpfr.so.6 lib/julia/libmpfr.so.6
 ln -s /usr/lib/x86_64-linux-gnu/libmpfr.so lib/julia/libmpfr.so
 
 sudo ln -s ~/julia-$JULIA_VERSION.$JULIA_SUB_VERSION/bin/julia /usr/local/bin/julia
-
-julia install_minimal_julia_packages.js
+rm ~/julia-$JULIA_VERSION.$JULIA_SUB_VERSION-*.tar.gz
+#julia install_minimal_julia_packages.js
 

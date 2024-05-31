@@ -42,9 +42,11 @@ TESTDIR = test
 TOOLSDIR = tools
 
 # folders for external libraries
-WIGDIR = $(EXTDIR)/wigxjpf
-FASTWIGDIR = $(EXTDIR)/fastwigxj
+WIGDIR = $(SRCDIR)/wigxjpf-1.13
+#FASTWIGDIR = $(SRCDIR)/fastwigxj-1.4.1
+FASTWIGDIR = $(SRCDIR)/fastwigxj-1.4.1-no-x86
 BLASFEODIR = $(EXTDIR)/blasfeo
+
 
 ###############################################################################################
 
@@ -134,9 +136,14 @@ $(BINDIR)/%: $(TOOLSDIR)/%.c $(OBJS)
 
 .DEFAULT_GOAL := default
 
+#all make recursive calls
+sub-make: 
+	$(MAKE) -C $(WIGDIR)
+	$(MAKE) -C $(FASTWIGDIR)
+
 default: all
 
-all: lib tests tools
+all: sub-make lib tests tools
 
 lib: $(LIBDIR)/libsl2cfoam.so
 
@@ -148,4 +155,5 @@ clean:
 	rm -rf $(OBJDIR)
 	rm -rf $(LIBDIR)
 	rm -rf $(BINDIR)
-	
+	(cd $(WIGDIR); $(MAKE) clean)
+	(cd $(FASTWIGDIR); $(MAKE) clean)
