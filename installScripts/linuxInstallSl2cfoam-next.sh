@@ -54,5 +54,5 @@ cd data_sl2cfoam
 cd ..
 
 echo -e "${GREEN}A test run{NC}"
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib:./sl2cfoam-next/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib:./lib
 bin/vertex-amplitude ./data_sl2cfoam 0.1 1,1,1,1,1,1,1,1,1,1 2,2,2,2,2 3
