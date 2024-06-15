@@ -1,0 +1,36 @@
+Install Windows Subsystem for Linux
+1  wsl --install
+2  wsl --set-default-version 2
+3  wsl --install Ubuntu-24.04
+4  Search for "Turn Windows features on or off"
+   In windows Features popup check Windows Subsystem for Linux. 
+5  Apply
+6  In search bar, search for  Ubuntu-24.04 and drag to launch bar.
+7  Start Ubuntu
+8  sudo apt update
+9  sudo apt upgrade
+10 sudo apt install firefox
+11 sudo apt install gh
+12 git clone https://github.com/FAUniv/sl2cfoam-next-FAUniv.git
+13 cd sl2cfoam-next-FAUniv/installScripts
+14 ./linuxInstallSl2cfoam-next-FAUniv.sh
+15 ./install_julia.sh
+16 ./install_useful_julia_packages.sh
+
+Jupyter notebook
+1 ./install_jupyter.sh
+2 ./launchJupyter.sh
+3 Open browser from Widows
+4  Copy link into browswer,
+    example:  http://localhost:8888/tree?token=10949165abc5713bf43c4a4a5228c97760045f3932c5e84c
+    This link will be shown in the linux terminal.
+
+5  In jupyter under files navigate to /sl2cfoam-next-FAUniv/exampleScripts/sl2cfoam.ipynb
+
+
+For Julia scripts
+cd /home/todd/sl2cfoam-next-FAUniv/exampleScripts
+export JULIA_LOAD_PATH=../julia/:$JULIA_LOAD_PATH
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib:../lib
+./listing1.jl
+
