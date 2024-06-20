@@ -1,13 +1,9 @@
-Copy files into the directory containing sl2cfoam-next.
-Cut and paste contents of setup.sh into terminal.
-
-
-sl2cfoam.ipynb    Notebook from Hongguang Liu https://indico.cern.ch/event/1231365/overview
+sl2cfoam.ipynb                Notebook from Hongguang Liu https://indico.cern.ch/event/1231365/overview
 Run from Jupyter.
 
-./listing1.jl     How-To compute EPRL spin foam amplitudes, Pietro Dona, Pietropaolo Frisoni  https://arxiv.org/abs/2202.04360
+./runJulia.sh listing1.jl     How-To compute EPRL spin foam amplitudes, Pietro Dona, Pietropaolo Frisoni  https://arxiv.org/abs/2202.04360
 
-./listing7.jl     How-To compute EPRL spin foam amplitudes, Pietro Dona, Pietropaolo Frisoni  https://arxiv.org/abs/2202.04360
+./runJulia.sh listing7.jl     How-To compute EPRL spin foam amplitudes, Pietro Dona, Pietropaolo Frisoni  https://arxiv.org/abs/2202.04360
 Need to install your nividia driver.
 Example: sudo apt install nvidia-driver-535
 
