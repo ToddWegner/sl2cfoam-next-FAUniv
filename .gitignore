@@ -3,11 +3,15 @@ obj/
 bin/
 lib/
 dbg/
+gen/
 ext/*
 !ext/b4_collet.c
 
 ### VS Code config
 .vscode/
+
+# clion
+.idea
 
 ### OS generated files
 .DS_Store
@@ -17,4 +21,9 @@ ext/*
 .Trashes
 ehthumbs.db
 Thumbs.db
+*.swp
 
+*.ipynb_checkpoints
+src/fastwigxj-1.4.1/test_comb_3_6_12.9j
+src/fastwigxj-1.4.1/test_hashed_3_6_12.9j
+data_sl2cfoam/
