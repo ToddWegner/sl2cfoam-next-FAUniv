@@ -33,7 +33,8 @@ extern "C" {
 #include <sys/file.h>
 #include <sys/stat.h> 
 #include <fcntl.h>
-#include <complex.h>
+//#include <complex.h>
+#include <ccomplex.h>
 #include <quadmath.h>
 #include <string.h>
 #include <errno.h>

@@ -246,7 +246,7 @@ function vertex_compute(js, Dl::Integer; result = VertexResult((true, true, fals
     cptr = ccall((:sl2cfoam_vertex_fullrange, clib), Ptr{__C_vertex_tensor}, 
                  (Ref{Cint}, Cint, Cint), ctwo.(js), Dl, result)
 
-    if !result.ret return nothing end
+    if !result.ret || cptr == C_NULL return nothing end
         
     Vertex(cptr)
 
