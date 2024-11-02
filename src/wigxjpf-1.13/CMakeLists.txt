@@ -139,12 +139,18 @@ if (TEST_TRAIL_ARRAY_ONE)
 endif()
 
 add_library(wigxjpf STATIC
-    src/prime_factor.c
-    src/calc.c
-    src/trivial_zero.c
-    src/c_wrap.c
-    src/fortran_wrap.c
-    src/wigxjpf_error.c
+src/calc.c
+src/calc_float128.c
+src/c_wrap.c
+src/c_wrap_float128.c
+src/fortran_wrap.c
+src/fpsimple.c
+src/fpsimple_log.c
+src/fpsimple_precalc.c
+src/prime_factor.c
+src/test_cc_dbl.c
+src/trivial_zero.c
+src/wigxjpf_error.c
 )
 
 target_include_directories(wigxjpf
