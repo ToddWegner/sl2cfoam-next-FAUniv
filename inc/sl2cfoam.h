@@ -126,7 +126,7 @@ bool sl2cfoam_get_OMP();
 // NB: indices order is reversed -> (i5 i4 i3 i2 i1)
 //     and memory layout is COLUMN-MAJOR.
 // Macro defines type sl2cfoam_tensor_vertex.
-TENSOR_INIT(vertex, 5);
+TENSOR_INIT(vertex, 5)
 
 // Additional (optional) infos added to vertex tensor object
 // specifying the vertex properties.
@@ -184,7 +184,7 @@ sl2cfoam_tensor_vertex* sl2cfoam_vertex_load(char* path);
 // NB: indices order is reversed -> (i5 i4 i3 i2 i1)
 //     and memory layout is COLUMN-MAJOR.
 // Macro defines type sl2cfoam_tensor_vertex_BF.
-TENSOR_INIT(vertex_BF, 5);
+TENSOR_INIT(vertex_BF, 5)
 
 // Computes a the BF vertex amplitudes for all intertwiners in the given range, given spins js.
 sl2cfoam_tensor_vertex_BF* sl2cfoam_vertex_BF_range(sl2cfoam_dspin two_js[10],
@@ -204,7 +204,7 @@ sl2cfoam_tensor_vertex_BF* sl2cfoam_vertex_BF_fullrange(sl2cfoam_dspin two_js[10
 
 // Tensor for 4d booster coefficients.
 // Indices: (i, k, l1, l2, l3, l4)
-TENSOR_INIT(boosters, 6);
+TENSOR_INIT(boosters, 6)
 
 // Computes a boosters tensor.
 // gf parameter is the gauge-fixed index (1 to 4).

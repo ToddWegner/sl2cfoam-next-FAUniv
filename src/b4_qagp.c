@@ -37,8 +37,8 @@
 #include "dsmall.h"
 #include "blas_wrapper.h"
 
-TENSOR_INIT(dsmall_integral, 4);
-TENSOR_INIT(boost_wig, 6);
+TENSOR_INIT(dsmall_integral, 4)
+TENSOR_INIT(boost_wig, 6)
 
 typedef struct __dsmall_params {
     int prec;

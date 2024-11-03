@@ -162,7 +162,7 @@ target_include_directories(wigxjpf
         ${CMAKE_CURRENT_BINARY_DIR}
 )
 
-set_target_properties(wigxjpf PROPERTIES COMPILE_FLAGS
-  "-O3 -fPIC ${CMAKE_C_FLAGS}")
+set_target_properties(wigxjpf PROPERTIES COMPILE_FLAGS "-O3 -fPIC ${CMAKE_C_FLAGS}")
+set_target_properties(wigxjpf PROPERTIES LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/src/wigxjpf-1.13/lib")
 
 target_compile_options(wigxjpf PRIVATE -Wno-shadow)

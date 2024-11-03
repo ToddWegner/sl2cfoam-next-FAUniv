@@ -43,17 +43,20 @@ vertex_bf.c
 vertex.c)
 
 add_library(sl2cfoam SHARED ${SL2CFOAM_HEADERS} ${SL2CFOAM_SRC} )
+
+set_target_properties(sl2cfoam PROPERTIES LIBRARY_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/../lib")
+
 target_compile_options(sl2cfoam PRIVATE -DUSE_OMP -DUSE_SYSBLAS)
 
 if(ENABLE_MPI)
     target_compile_options(sl2cfoam PRIVATE -DUSE_MPI)
 endif()
 
-target_include_directories(sl2cfoam PUBLIC  ${CMAKE_SOURCE_DIR}/inc
-                                    PRIVATE ${CMAKE_SOURCE_DIR}/src/wigxjpf-1.13/inc
-                                            ${CMAKE_SOURCE_DIR}/src/fastwigxj-1.4.1/inc )
+target_include_directories(sl2cfoam PUBLIC  ${PROJECT_SOURCE_DIR}/../inc
+                                    PRIVATE ${PROJECT_SOURCE_DIR}/../src/wigxjpf-1.13/inc
+                                            ${PROJECT_SOURCE_DIR}/../src/fastwigxj-1.4.1/inc )
                                             
-target_link_directories(sl2cfoam PRIVATE ${CMAKE_SOURCE_DIR}/src/wigxjpf-1.13/lib
-                                         ${CMAKE_SOURCE_DIR}/src/fastwigxj-1.4.1/lib)
+target_link_directories(sl2cfoam PRIVATE ${PROJECT_SOURCE_DIR}/../src/wigxjpf-1.13/lib
+                                         ${PROJECT_SOURCE_DIR}/../src/fastwigxj-1.4.1/lib)
 target_link_libraries(sl2cfoam -lopenblas -lblas -lpthread)
-target_link_libraries(sl2cfoam -lmpc -lmpfr -lgmp -lquadmath -lfastwigxj -lwigxjpf -lwigxjpf_quadmath -lm )
+target_link_libraries(sl2cfoam -lmpc -lmpfr -lgmp -lquadmath -lfastwigxj -lwigxjpf -lwigxjpf_quadmath -lm -fopenmp)

@@ -38,8 +38,8 @@
 #include "wigxjpf.h"
 #include "fastwigxj.h"
 
-TENSOR_INIT(dsmall_integral, 4);
-TENSOR_INIT(boost_wig, 3);
+TENSOR_INIT(dsmall_integral, 4)
+TENSOR_INIT(boost_wig, 3)
 
 static void dsmall_measure(double ds[], double xs[], size_t N) {
 
