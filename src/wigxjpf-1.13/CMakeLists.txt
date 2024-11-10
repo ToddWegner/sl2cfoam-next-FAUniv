@@ -1,3 +1,10 @@
+# TODD added the following lines
+cmake_minimum_required(VERSION 3.28.1)
+
+project(wigxjpf)
+set(CMAKE_C_STANDARD 23)
+# added end
+
 include(CheckCSourceCompiles)
 
 check_c_source_compiles("
@@ -162,7 +169,19 @@ target_include_directories(wigxjpf
         ${CMAKE_CURRENT_BINARY_DIR}
 )
 
+# TODD modified line
 set_target_properties(wigxjpf PROPERTIES COMPILE_FLAGS "-O3 -fPIC ${CMAKE_C_FLAGS}")
-set_target_properties(wigxjpf PROPERTIES LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/src/wigxjpf-1.13/lib")
 
 target_compile_options(wigxjpf PRIVATE -Wno-shadow)
+
+# TODD: Add the following lines
+add_library(wigxjpf_quadmath STATIC src/calc_float128.c src/c_wrap_float128.c)
+target_include_directories(wigxjpf_quadmath
+        PUBLIC
+        inc/
+        PRIVATE
+        cfg/
+        src/
+        ${CMAKE_CURRENT_BINARY_DIR}
+)
+# end add

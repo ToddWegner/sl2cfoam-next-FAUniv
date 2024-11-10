@@ -56,7 +56,6 @@ target_include_directories(sl2cfoam PUBLIC  ${PROJECT_SOURCE_DIR}/../inc
                                     PRIVATE ${PROJECT_SOURCE_DIR}/../src/wigxjpf-1.13/inc
                                             ${PROJECT_SOURCE_DIR}/../src/fastwigxj-1.4.1/inc )
                                             
-target_link_directories(sl2cfoam PRIVATE ${PROJECT_SOURCE_DIR}/../src/wigxjpf-1.13/lib
-                                         ${PROJECT_SOURCE_DIR}/../src/fastwigxj-1.4.1/lib)
+target_link_directories(sl2cfoam  PRIVATE ${CMAKE_BINARY_DIR}/libs)
 target_link_libraries(sl2cfoam -lopenblas -lblas -lpthread)
 target_link_libraries(sl2cfoam -lmpc -lmpfr -lgmp -lquadmath -lfastwigxj -lwigxjpf -lwigxjpf_quadmath -lm -fopenmp)

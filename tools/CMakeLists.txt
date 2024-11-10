@@ -20,9 +20,7 @@ target_include_directories(vertex-fulltensor PUBLIC  ${CMAKE_SOURCE_DIR}/inc
                                                      ${CMAKE_SOURCE_DIR}/wigxjpf-1.13/inc
                                                      ${CMAKE_SOURCE_DIR}/fastwigxj-1.4.1/inc )
                                                      
-target_link_directories(vertex-fulltensor PRIVATE ${CMAKE_SOURCE_DIR}/src/wigxjpf-1.13/lib
-                                                  ${CMAKE_SOURCE_DIR}/src/fastwigxj-1.4.1/lib)
-
+target_link_directories(vertex-fulltensor PRIVATE ${CMAKE_BINARY_DIR}/libs)
 target_link_libraries(vertex-fulltensor -fopenmp sl2cfoam )
 
 ##################################################################
@@ -36,6 +34,5 @@ target_include_directories(vertex-amplitude PUBLIC  ${CMAKE_SOURCE_DIR}/inc
                                                     ${CMAKE_SOURCE_DIR}/wigxjpf-1.13/inc
                                                     ${CMAKE_SOURCE_DIR}/fastwigxj-1.4.1/inc )
                                                      
-target_link_directories(vertex-amplitude PRIVATE ${CMAKE_SOURCE_DIR}/src/wigxjpf-1.13/lib
-                                                 ${CMAKE_SOURCE_DIR}/src/fastwigxj-1.4.1/lib)
+target_link_directories(vertex-amplitude PRIVATE ${CMAKE_BINARY_DIR}/libs)
 target_link_libraries(vertex-amplitude -fopenmp sl2cfoam )
