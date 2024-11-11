@@ -43,9 +43,6 @@ vertex_bf.c
 vertex.c)
 
 add_library(sl2cfoam SHARED ${SL2CFOAM_HEADERS} ${SL2CFOAM_SRC} )
-
-set_target_properties(sl2cfoam PROPERTIES LIBRARY_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/../lib")
-
 target_compile_options(sl2cfoam PRIVATE -DUSE_OMP -DUSE_SYSBLAS)
 
 if(ENABLE_MPI)

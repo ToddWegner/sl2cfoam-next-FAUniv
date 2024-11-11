@@ -33,8 +33,7 @@ extern "C" {
 #include <sys/file.h>
 #include <sys/stat.h> 
 #include <fcntl.h>
-//#include <complex.h>
-#include <ccomplex.h>
+#include <complex.h>
 #include <quadmath.h>
 #include <string.h>
 #include <errno.h>
@@ -287,7 +286,9 @@ load_##t##_end:                                                               \
 // 2d matrix in COLUMN-MAJOR format
 typedef void*           sl2cfoam_matrix;
 typedef double*         sl2cfoam_dmatrix;
-typedef double complex* sl2cfoam_cmatrix;
+
+// TODD, cross compatibility with C++
+typedef double _Complex* sl2cfoam_cmatrix;
 typedef __float128*     sl2cfoam_qmatrix;
 typedef __complex128*   sl2cfoam_zmatrix;
 
@@ -311,7 +312,9 @@ typedef __complex128*   sl2cfoam_zmatrix;
 // vectors
 typedef void*           sl2cfoam_vector;
 typedef double*         sl2cfoam_dvector;
-typedef double complex* sl2cfoam_cvector;
+
+// TODD, cross compatibility with C++
+typedef double _Complex* sl2cfoam_cvector;
 typedef __float128*     sl2cfoam_qvector;
 typedef __complex128*   sl2cfoam_zvector;
 
