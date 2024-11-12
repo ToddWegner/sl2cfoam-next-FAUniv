@@ -18,8 +18,8 @@ option(FASTWIGXJ_HAVE_AVX2 "Have AVX2 support" ON)
 
 # Configure the header file
 configure_file(
-        ${CMAKE_SOURCE_DIR}/src/fastwigxj-1.4.1/cfg/fastwigxj_auto_config.h.in
-        ${CMAKE_BINARY_DIR}/src/fastwigxj-1.4.1/cfg/fastwigxj_auto_config.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/../cfg/fastwigxj_auto_config.h.in
+        ${CMAKE_CURRENT_SOURCE_DIR}/../cfg/fastwigxj_auto_config.h
 )
 
 ##################################################################
