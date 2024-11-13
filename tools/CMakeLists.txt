@@ -16,7 +16,6 @@ PROJECT(tools C)
 ##################################################################
 add_executable(vertex-fulltensor vertex-fulltensor.c)
 target_include_directories(vertex-fulltensor PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../src)
-                                                     
 target_link_directories(vertex-fulltensor PRIVATE ${CMAKE_BINARY_DIR}/libs)
 target_link_libraries(vertex-fulltensor -fopenmp sl2cfoam )
 
@@ -26,7 +25,6 @@ target_link_libraries(vertex-fulltensor -fopenmp sl2cfoam )
 #
 ##################################################################
 add_executable(vertex-amplitude vertex-amplitude.c)
-target_include_directories(vertex-amplitude PRIVATE ${CMAKE_SOURCE_DIR}/src)
-
+target_include_directories(vertex-amplitude PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../src)
 target_link_directories(vertex-amplitude PRIVATE ${CMAKE_BINARY_DIR}/libs)
 target_link_libraries(vertex-amplitude -fopenmp sl2cfoam )
