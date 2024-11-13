@@ -49,9 +49,9 @@ if(ENABLE_MPI)
     target_compile_options(sl2cfoam PRIVATE -DUSE_MPI)
 endif()
 
-target_include_directories(sl2cfoam PUBLIC  ${PROJECT_SOURCE_DIR}/../inc
-                                    PRIVATE ${PROJECT_SOURCE_DIR}/../src/wigxjpf-1.13/inc
-                                            ${PROJECT_SOURCE_DIR}/../src/fastwigxj-1.4.1/inc )
+target_include_directories(sl2cfoam PUBLIC  ${CMAKE_CURRENT_SOURCE_DIR}/../inc
+                                                             PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/wigxjpf-1.13/inc
+                                                                             ${CMAKE_CURRENT_SOURCE_DIR}/fastwigxj-1.4.1/inc )
                                             
 target_link_directories(sl2cfoam  PRIVATE ${CMAKE_BINARY_DIR}/libs)
 target_link_libraries(sl2cfoam -lopenblas -lblas -lpthread)

@@ -135,7 +135,7 @@ target_link_libraries(hash_js fastwigxj quadmath)
 ##################################################################
 add_executable(info_js info_js.cc fastwigxj_cc.cc)
 
-target_include_directories(info_js PUBLIC  ${CMAKE_CURRENT_SOURCE_DIR}/../inc
+target_include_directories(info_js PUBLIC    ${CMAKE_CURRENT_SOURCE_DIR}/../inc
                                                           PRIVATE  ${CMAKE_CURRENT_SOURCE_DIR}/../cfg
                                                                            ${CMAKE_CURRENT_SOURCE_DIR}/../gen)
 
