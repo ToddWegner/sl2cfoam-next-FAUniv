@@ -51,7 +51,7 @@ endif()
 
 target_include_directories(sl2cfoam PUBLIC  ${CMAKE_CURRENT_SOURCE_DIR}/../inc
                                                              PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/wigxjpf-1.13/inc
-                                                                             ${CMAKE_CURRENT_SOURCE_DIR}/fastwigxj-1.4.1/inc )
+                                                                             ${CMAKE_CURRENT_SOURCE_DIR}/fastwigxj-1.4.1/inc)
                                             
 target_link_directories(sl2cfoam  PRIVATE ${CMAKE_BINARY_DIR}/libs)
 target_link_libraries(sl2cfoam -lopenblas -lblas -lpthread)
