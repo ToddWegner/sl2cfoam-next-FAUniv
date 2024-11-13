@@ -43,6 +43,7 @@ test_cc_dbl.c
 )
 
 add_library(fastwigxj SHARED ${FASTWIGXJ_HEADERS} ${FASTWIGXJ_SRC} )
+add_dependencies (fastwigxj wigxjpf)
 target_compile_options(fastwigxj PRIVATE -O3 -fPIC -g -Wall -Wextra -Wconversion -Wcast-qual -Wno-shadow)
 target_include_directories(fastwigxj PUBLIC   ${CMAKE_CURRENT_SOURCE_DIR}/../inc
                                                              PRIVATE  ${CMAKE_CURRENT_SOURCE_DIR}/../cfg

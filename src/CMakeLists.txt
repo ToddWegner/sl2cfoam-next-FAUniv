@@ -43,6 +43,7 @@ vertex_bf.c
 vertex.c)
 
 add_library(sl2cfoam SHARED ${SL2CFOAM_HEADERS} ${SL2CFOAM_SRC} )
+add_dependencies (sl2cfoam fastwigxj  wigxjpf_quadmath)
 target_compile_options(sl2cfoam PRIVATE -DUSE_OMP -DUSE_SYSBLAS)
 
 if(ENABLE_MPI)
