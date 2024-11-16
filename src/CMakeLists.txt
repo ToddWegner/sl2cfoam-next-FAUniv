@@ -10,6 +10,8 @@ project(sl2cfoam)
 set(CMAKE_C_STANDARD 11)
 
 option(ENABLE_MPI "Enable MPI" OFF)
+option(ENABLE_OMP "Enable OMP" ON)
+option(ENABLE_SYS_BLAS "Use system BLAS" ON)
 
 set (SL2CFOAM_HEADERS
 blas_wrapper.h
@@ -42,12 +44,29 @@ sl2cfoam.c
 vertex_bf.c
 vertex.c)
 
+set (SL2FOAM_LIBRARIES -lopenblas -lblas -lpthread -lmpc -lmpfr
+                                             -lgmp -lquadmath -lfastwigxj -lwigxjpf
+                                             -lwigxjpf_quadmath -lm -fopenmp)
+
+##################################################################
+#
+# build shared sl2cfoam library
+#
+##################################################################
+
 add_library(sl2cfoam SHARED ${SL2CFOAM_HEADERS} ${SL2CFOAM_SRC} )
 add_dependencies (sl2cfoam fastwigxj  wigxjpf_quadmath)
-target_compile_options(sl2cfoam PRIVATE -DUSE_OMP -DUSE_SYSBLAS)
 
 if(ENABLE_MPI)
-    target_compile_options(sl2cfoam PRIVATE -DUSE_MPI)
+    target_compile_options(sl2cfoam PRIVATE -DUSE_MPI=1)
+endif()
+
+if(ENABLE_OMP)
+    target_compile_options(sl2cfoam PRIVATE -DUSE_OMPI=1)
+endif()
+
+if(ENABLE_SYS_BLAS)
+    target_compile_options(sl2cfoam PRIVATE -DUSE_SYSBLAS=1)
 endif()
 
 target_include_directories(sl2cfoam PUBLIC  ${CMAKE_CURRENT_SOURCE_DIR}/../inc
@@ -55,5 +74,33 @@ target_include_directories(sl2cfoam PUBLIC  ${CMAKE_CURRENT_SOURCE_DIR}/../inc
                                                                              ${CMAKE_CURRENT_SOURCE_DIR}/fastwigxj-1.4.1/inc)
                                             
 target_link_directories(sl2cfoam  PRIVATE ${CMAKE_BINARY_DIR}/libs)
-target_link_libraries(sl2cfoam -lopenblas -lblas -lpthread)
-target_link_libraries(sl2cfoam -lmpc -lmpfr -lgmp -lquadmath -lfastwigxj -lwigxjpf -lwigxjpf_quadmath -lm -fopenmp)
+target_link_libraries(sl2cfoam ${SL2FOAM_LIBRARIES})
+
+
+##################################################################
+#
+# build static sl2cfoam library
+#
+##################################################################
+
+add_library(sl2cfoam_static STATIC ${SL2CFOAM_HEADERS} ${SL2CFOAM_SRC} )
+add_dependencies (sl2cfoam_static fastwigxj  wigxjpf_quadmath)
+
+if(ENABLE_MPI)
+    target_compile_options(sl2cfoam_static PRIVATE -DUSE_MPI=1)
+endif()
+
+if(ENABLE_OMP)
+    target_compile_options(sl2cfoam_static PRIVATE -DUSE_OMPI=1)
+endif()
+
+if(ENABLE_SYS_BLAS)
+    target_compile_options(sl2cfoam_static PRIVATE -DUSE_SYSBLAS=1)
+endif()
+
+target_include_directories(sl2cfoam_static PUBLIC  ${CMAKE_CURRENT_SOURCE_DIR}/../inc
+        PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/wigxjpf-1.13/inc
+        ${CMAKE_CURRENT_SOURCE_DIR}/fastwigxj-1.4.1/inc)
+
+target_link_directories(sl2cfoam_static  PRIVATE ${CMAKE_BINARY_DIR}/libs)
+target_link_libraries(sl2cfoam_static ${SL2FOAM_LIBRARIES})

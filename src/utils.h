@@ -185,7 +185,7 @@ static inline void find_k_absolute_bounds(size_t* k_size, dspin* two_k_absmin, d
 #define CUBE(d) ((d)*(d)*(d))
 
 // Computes (-1)^j for generic spin j.
-static inline double complex sl2cfoam_complex_negpow(dspin two_j) {
+static inline double _Complex sl2cfoam_complex_negpow(dspin two_j) {
 
     int k = two_j % 2; // i factor
     int j = two_j / 2;

@@ -295,7 +295,7 @@ typedef __complex128*   sl2cfoam_zmatrix;
 #define dmatrix_alloc(d1, d2) sl2cfoam_aligned_calloc(d1*d2)
 #define dmatrix_realloc(m, d1, d2) sl2cfoam_aligned_realloc(m, d1*d2)
 
-#define cmatrix_alloc(d1, d2) sl2cfoam_aligned_calloc2(d1*d2*sizeof(double complex))
+#define cmatrix_alloc(d1, d2) sl2cfoam_aligned_calloc2(d1*d2*sizeof(double  _Complex))
 #define qmatrix_alloc(d1, d2) sl2cfoam_aligned_calloc2(d1*d2*sizeof(__float128))
 #define zmatrix_alloc(d1, d2) sl2cfoam_aligned_calloc2(d1*d2*sizeof(__complex128))
 
@@ -319,12 +319,12 @@ typedef __float128*     sl2cfoam_qvector;
 typedef __complex128*   sl2cfoam_zvector;
 
 #define dvector_alloc(d) sl2cfoam_aligned_calloc(d)
-#define cvector_alloc(d) sl2cfoam_aligned_calloc2(d*sizeof(double complex))
+#define cvector_alloc(d) sl2cfoam_aligned_calloc2(d*sizeof(double  _Complex))
 #define qvector_alloc(d) sl2cfoam_aligned_calloc2(d*sizeof(__float128))
 #define zvector_alloc(d) sl2cfoam_aligned_calloc2(d*sizeof(__complex128))
 
 #define dvector_zero(m, d) memset(m, 0, d * sizeof(double))
-#define cvector_zero(m, d) memset(m, 0, d * sizeof(double complex))
+#define cvector_zero(m, d) memset(m, 0, d * sizeof(double  _Complex))
 #define qvector_zero(m, d) memset(m, 0, d * sizeof(__float128))
 #define zvector_zero(m, d) memset(m, 0, d * sizeof(__complex128))
 
