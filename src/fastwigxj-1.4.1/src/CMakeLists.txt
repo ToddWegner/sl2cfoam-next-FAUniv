@@ -18,7 +18,7 @@ option(FASTWIGXJ_HAVE_AVX2 "Have AVX2 support" ON)
 
 # Configure the header file
 configure_file( ${CMAKE_CURRENT_SOURCE_DIR}/../cfg/fastwigxj_auto_config.h.in
-                         ${CMAKE_CURRENT_SOURCE_DIR}/../cfg/fastwigxj_auto_config.h)
+                ${CMAKE_CURRENT_SOURCE_DIR}/../cfg/fastwigxj_auto_config.h)
 
 ##################################################################
 #
@@ -46,9 +46,9 @@ add_library(fastwigxj SHARED ${FASTWIGXJ_HEADERS} ${FASTWIGXJ_SRC} )
 add_dependencies (fastwigxj wigxjpf)
 target_compile_options(fastwigxj PRIVATE -O3 -fPIC -g -Wall -Wextra -Wconversion -Wcast-qual -Wno-shadow)
 target_include_directories(fastwigxj PUBLIC   ${CMAKE_CURRENT_SOURCE_DIR}/../inc
-                                                             PRIVATE  ${CMAKE_CURRENT_SOURCE_DIR}/../cfg
-                                                                              ${CMAKE_CURRENT_SOURCE_DIR}/../gen
-                                                                              ${CMAKE_CURRENT_SOURCE_DIR}/../../wigxjpf-1.13/inc)
+                                     PRIVATE  ${CMAKE_CURRENT_SOURCE_DIR}/../cfg
+                                              ${CMAKE_CURRENT_SOURCE_DIR}/../gen
+                                              ${CMAKE_CURRENT_SOURCE_DIR}/../../wigxjpf-1.13/inc)
                                      
 target_link_directories(fastwigxj PRIVATE ${CMAKE_BINARY_DIR}/libs)
 target_link_libraries(fastwigxj -lwigxjpf -lwigxjpf_quadmath -lm )
@@ -75,8 +75,8 @@ target_link_libraries(combine_js fastwigxj)
 add_executable(fastwigxj_cc fastwigxj_cc.cc
                             gen_header.hh gen_header.cc)
 target_include_directories(fastwigxj_cc PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../inc
-                                                                   PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../cfg
-                                                                                   ${CMAKE_CURRENT_SOURCE_DIR}/../gen)
+                                        PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../cfg
+                                                ${CMAKE_CURRENT_SOURCE_DIR}/../gen)
 
 target_link_directories(fastwigxj_cc PRIVATE ${CMAKE_BINARY_DIR}/libs)
 target_link_libraries(fastwigxj_cc fastwigxj quadmath)
@@ -92,7 +92,7 @@ add_executable(gen_3j gen_3j.cc
         gen_buf.hh gen_buf.cc)
 
 target_include_directories(gen_3j PUBLIC   ${CMAKE_CURRENT_SOURCE_DIR}/../inc )
-target_link_directories(gen_3j       PRIVATE ${CMAKE_BINARY_DIR}/libs)
+target_link_directories(gen_3j    PRIVATE ${CMAKE_BINARY_DIR}/libs)
 target_link_libraries(gen_3j fastwigxj quadmath)
 
 ##################################################################
@@ -107,8 +107,8 @@ add_executable(gen_9j gen_9j.cc
 target_compile_options(gen_9j PRIVATE -Wall -Wextra -O2 -mavx2  -fPIC -g)
 
 target_include_directories(gen_9j PUBLIC  ${CMAKE_CURRENT_SOURCE_DIR}/../inc
-                                                         PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../cfg
-                                                                         ${CMAKE_CURRENT_SOURCE_DIR}/../gen)
+                                  PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../cfg
+                                          ${CMAKE_CURRENT_SOURCE_DIR}/../gen)
 target_link_directories(gen_9j PRIVATE ${CMAKE_BINARY_DIR}/libs)
 target_link_libraries(gen_9j fastwigxj quadmath)
 
@@ -122,9 +122,9 @@ add_executable(hash_js hash_js.cc
                              gen_buf.hh gen_buf.cc)
 
 target_include_directories(hash_js PUBLIC  ${CMAKE_CURRENT_SOURCE_DIR}/../inc
-                                                            PRIVATE  ${CMAKE_CURRENT_SOURCE_DIR}/../cfg
-                                                                             ${CMAKE_CURRENT_SOURCE_DIR}/../gen
-                                                                             ${CMAKE_CURRENT_SOURCE_DIR}/../../wigxjpf-1.13/inc)
+                                   PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../cfg
+                                           ${CMAKE_CURRENT_SOURCE_DIR}/../gen
+                                           ${CMAKE_CURRENT_SOURCE_DIR}/../../wigxjpf-1.13/inc)
 
 target_link_directories(hash_js PRIVATE  ${CMAKE_BINARY_DIR}/libs)
 target_link_libraries(hash_js fastwigxj quadmath)
@@ -136,9 +136,9 @@ target_link_libraries(hash_js fastwigxj quadmath)
 ##################################################################
 add_executable(info_js info_js.cc fastwigxj_cc.cc)
 
-target_include_directories(info_js PUBLIC    ${CMAKE_CURRENT_SOURCE_DIR}/../inc
-                                                          PRIVATE  ${CMAKE_CURRENT_SOURCE_DIR}/../cfg
-                                                                           ${CMAKE_CURRENT_SOURCE_DIR}/../gen)
+target_include_directories(info_js PUBLIC   ${CMAKE_CURRENT_SOURCE_DIR}/../inc
+                                   PRIVATE  ${CMAKE_CURRENT_SOURCE_DIR}/../cfg
+                                            ${CMAKE_CURRENT_SOURCE_DIR}/../gen)
 
 target_link_directories(info_js PRIVATE ${CMAKE_BINARY_DIR}/libs)
 target_link_libraries(info_js fastwigxj quadmath)
