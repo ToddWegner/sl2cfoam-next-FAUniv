@@ -575,9 +575,21 @@ sl2cfoam_dmatrix sl2cfoam_b4(dspin two_j1, dspin two_j2, dspin two_j3, dspin two
             w3j4 = TENSOR_GET(wt_kp3p4, 3, ki, p3i, p4i);
 
             double kisum;
+
+            #if 1
             kisum = real_negpow(two_i + two_k + 2*(two_p1 + two_p2)) 
                     * w3j1 * w3j2 * w3j3 * w3j4 * integral;
-            
+            #else
+            dspin s = two_i + two_k + 2*(two_p1 + two_p2);
+            if ( is_integer(s)) {
+                kisum = sl2cfoam_real_negpow_no_exit(s);
+            }
+            else {
+                printf("ERROR in sl2cfoam_b4, spin is not integer s = %d\n", s);
+                continue;
+            }
+
+            #endif
             matrix_get(b4_thread, dimi, ii, ki) += kisum;
 
         } // i
