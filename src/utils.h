@@ -123,7 +123,7 @@ static inline int sl2cfoam_imin(int n1, int n2) {
 
 // Checks that the dspin value corresponds to an integer spin.
 #define ensure_integer_spin(two_j) \
-    { if ((two_j) % 2 != 0) { error("integer check failed"); } }
+    { if ((two_j) % 2 != 0) { error("integer check failed: %d", two_j); } }
 
 // Absolute bounds for intertwiner dependent on l indices.
 // gf is the gauge-fixed index (1 to 4) 
@@ -157,7 +157,7 @@ static inline void find_k_absolute_bounds(size_t* k_size, dspin* two_k_absmin, d
         break;
     
     default:
-        error("wrong gf index");
+        error("wrong gf index: %d", gf);
 
     }
 
