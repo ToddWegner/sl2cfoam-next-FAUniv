@@ -62,7 +62,7 @@ if(ENABLE_MPI)
 endif()
 
 if(ENABLE_OMP)
-    target_compile_options(sl2cfoam PRIVATE -DUSE_OMPI=1)
+    target_compile_options(sl2cfoam PRIVATE -DUSE_OMP=1)
 endif()
 
 if(ENABLE_SYS_BLAS)
